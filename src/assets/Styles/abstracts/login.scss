@@ -1,0 +1,23 @@
+@import "./variables.scss";
+.login-container {
+  background-image: url(/assets/img/loginBg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 100vh;
+}
+
+.card-auth {
+  background-color: $white-color;
+  h2 {
+    color: $login-header;
+  }
+
+  p {
+    color: $wlc-msg;
+  }
+
+  input {
+    background-color: $forms-clr;
+  }
+}
