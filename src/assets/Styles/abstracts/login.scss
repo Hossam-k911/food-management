@@ -33,3 +33,10 @@
     text-decoration: none;
   }
 }
+
+.reset-mail {
+  @extend .login-card;
+}
+.reset-password-card {
+  @extend .login-card;
+}

@@ -15,11 +15,10 @@ export class HeadersInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    const $baseUrl = 'http://upskilling-egypt.com:3002/docs/api/v1/';
+    const $baseUrl = 'http://upskilling-egypt.com:3002/api/v1/';
     const authToken = localStorage.getItem('token');
-    let headers = request.headers
-      .set('Content-Type', 'application/json')
-      .set('Accept', 'application/json');
+    let headers = request.headers;
+
     if (!authToken) {
       headers.set('Authorization', `Bearer ${authToken} `);
     }

@@ -7,6 +7,7 @@ import { CoreModule } from './core/core.module';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { HeadersInterceptor } from './core/Interceptors/Headers/headers.interceptor';
 import { LoaderInterceptor } from './core/Interceptors/Loader/loader.interceptor';
+import { SharedModule } from './shared/shared.module';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +17,7 @@ import { LoaderInterceptor } from './core/Interceptors/Loader/loader.interceptor
     BrowserAnimationsModule,
     CoreModule,
     HttpClientModule,
+    SharedModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HeadersInterceptor, multi: true },

@@ -7,6 +7,9 @@ import {
   Validators,
 } from '@angular/forms';
 import { CoreService } from 'src/app/core/services/core/core.service';
+import { ToastrService } from 'ngx-toastr';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-reset-password-dialog',
   templateUrl: './reset-password-dialog.component.html',
@@ -17,6 +20,8 @@ export class ResetPasswordDialogComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private core: CoreService,
+    private toastr: ToastrService,
+    private _router: Router,
     @Inject(MAT_DIALOG_DATA) public email: any,
     public dialog: MatDialogRef<ResetPasswordDialogComponent>
   ) {
@@ -38,6 +43,10 @@ export class ResetPasswordDialogComponent implements OnInit {
       .resetWithEmail(this.resetForm.getRawValue())
       .subscribe((res: any) => {
         debugger;
+        this.toastr.success(`${res.message}`);
+        this._router.navigate([`/reset-password`]);
+
+        this.dialog.close();
       });
   }
 }

@@ -43,13 +43,14 @@ export class LoginComponent implements OnInit {
         (res: any) => {
           debugger;
           console.log(res);
+
+          localStorage.setItem('token', res.token);
         },
         (error) => {
           this.loginError(error);
         }
       );
     } else {
-      debugger;
       this.loginError('Login Form is not Valid');
     }
   }
@@ -69,7 +70,6 @@ export class LoginComponent implements OnInit {
   }
 
   loginError(errMessage) {
-    debugger;
-    this.toastr.error(`${errMessage}`);
+    this.toastr.error(`${errMessage.message}`);
   }
 }

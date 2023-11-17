@@ -21,6 +21,7 @@ import { ToastrModule } from 'ngx-toastr';
     ToastrModule.forRoot({
       timeOut: 10000,
       preventDuplicates: true,
+      closeButton: true,
     }),
   ],
   exports: [
