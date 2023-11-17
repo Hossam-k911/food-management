@@ -1,0 +1,22 @@
+button {
+  border: none;
+  border-radius: 8px;
+  padding: 10px 15px;
+
+  &.primary {
+    background-color: $main-txt;
+    color: $white-color;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &.outline-primary {
+    border: 1px solid $main-txt;
+    color: $main-txt;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

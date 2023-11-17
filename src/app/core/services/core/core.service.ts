@@ -1,0 +1,13 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class CoreService {
+  constructor(private http: HttpClient) {}
+
+  login(loginData) {
+    return this.http.post(`Users/Login`, loginData);
+  }
+}

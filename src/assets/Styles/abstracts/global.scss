@@ -1,0 +1,16 @@
+@import "./variables.scss";
+
+.main-text {
+  color: $main-txt;
+}
+
+.second-txt {
+  color: $secondry-txt;
+}
+
+.main-bg {
+  background-color: $main-txt !important;
+}
+.secondary-bg {
+  background-color: $secondry-txt !important;
+}

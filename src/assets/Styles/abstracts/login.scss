@@ -1,4 +1,5 @@
 @import "./variables.scss";
+
 .login-container {
   background-image: url(/assets/img/loginBg.png);
   background-size: cover;
@@ -9,6 +10,8 @@
 
 .login-card {
   background-color: $white-color;
+  border-radius: 16px;
+  padding: 1.5rem;
   h2 {
     color: $login-header;
   }
@@ -19,5 +22,14 @@
 
   input {
     background-color: $forms-clr;
+  }
+
+  i {
+    color: $icons-clr;
+  }
+}
+.links-holder {
+  margin: a {
+    text-decoration: none;
   }
 }
