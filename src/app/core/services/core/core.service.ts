@@ -10,4 +10,8 @@ export class CoreService {
   login(loginData) {
     return this.http.post(`Users/Login`, loginData);
   }
+
+  resetWithEmail(email) {
+    return this.http.post(`Reset/Request`, email);
+  }
 }

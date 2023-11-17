@@ -54,10 +54,10 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  openResetPasswordDialog(loginMail) {
+  openResetPasswordDialog(email) {
     const dialogRef = this.dialog.open(ResetPasswordDialogComponent, {
       data: {
-        loginMail,
+        email,
       },
     });
 
