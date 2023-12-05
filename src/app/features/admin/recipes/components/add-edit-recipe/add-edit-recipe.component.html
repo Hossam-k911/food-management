@@ -1,0 +1,147 @@
+<section class="">
+  <div class="add-recipe">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <h3>Fill The <span class="text-success fw-bold">Recipes</span></h3>
+        </div>
+        <div class="col-md-3">
+          <button
+            class="green-btn"
+            routerLink="/dashboard/dashboard/admin/recepies"
+          >
+            All Recipes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container px-5">
+    <div class="row">
+      <div class="col-md-10 mx-auto">
+        <form
+          action=""
+          class="form-control border-0 food-card shadow-sm"
+          [formGroup]="dataForm"
+          (ngSubmit)="onSubmit(dataForm)"
+        >
+          <div class="row">
+            <div class="col-md-12">
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text py-2" id="addon-wrapping"
+                  ><i class="fa-solid fa-mobile-screen"></i
+                ></span>
+
+                <input
+                  type="text"
+                  placeholder="Recipe Name"
+                  class="form-control"
+                  formControlName="name"
+                />
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text py-2" id="addon-wrapping"
+                  ><i class="fa-solid fa-mobile-screen"></i
+                ></span>
+
+                <input
+                  type="text"
+                  placeholder="Price"
+                  class="form-control"
+                  formControlName="price"
+                />
+              </div>
+            </div>
+            <!-- <div class="col-md-12">
+                               <div class="input-group flex-nowrap mb-3">
+                                   <span class="input-group-text py-2" id="addon-wrapping"><i class="fa-solid fa-mobile-screen"></i></span>
+   
+                                <input type="text" placeholder=""  class="form-control" formControlName="">
+                            </div></div> -->
+
+            <div class="col-md-6 pe-1">
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text py-2" id="addon-wrapping"
+                  ><i class="fa-solid fa-mobile-screen"></i
+                ></span>
+
+                <!-- <input type="text"   class="form-control" > -->
+                <select
+                  class="form-select border-1 py-1"
+                  formControlName="tagId"
+                  aria-label="Default select example"
+                >
+                  <option selected value="0">All Tags</option>
+                  <option
+                    [value]="tag.id"
+                    *ngFor="let tag of tags"
+                    class="py-1"
+                  >
+                    {{ tag.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-6 ps-1">
+              <div class="input-group flex-nowrap mb-3">
+                <span class="input-group-text py-2" id="addon-wrapping"
+                  ><i class="fa-solid fa-mobile-screen"></i
+                ></span>
+                <select
+                  class="form-select border-1 py-1"
+                  formControlName="categoriesIds"
+                  aria-label="Default select example"
+                >
+                  <option selected class="" value="0">All Categories</option>
+                  <option
+                    [value]="category.id"
+                    *ngFor="let category of categories"
+                    class="py-1"
+                  >
+                    {{ category.name }}
+                  </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-12">
+              <div class="input-group flex-nowrap mb-3">
+                <textarea
+                  class="form-control py-2"
+                  placeholder="Description"
+                  formControlName="description"
+                ></textarea>
+              </div>
+              <div class="col-md-12">
+                <!-- <ngx-dropzone (change)="onSelect($event)" [multiple]="false">
+                  <ngx-dropzone-label
+                    >Drag and Drop image
+                    <span class="text-success fw-bold">Choose image </span>to
+                    upload</ngx-dropzone-label
+                  >
+
+                  <ngx-dropzone-image-preview
+                    [removable]="true"
+                    (removed)="onRemove(f)"
+                    ngProjectAs="ngx-dropzone-preview"
+                    *ngFor="let f of files"
+                    [file]="f"
+                  >
+                    <ngx-dropzone-label>({{ f.type }})</ngx-dropzone-label>
+                  </ngx-dropzone-image-preview>
+                </ngx-dropzone> -->
+              </div>
+              <div class="form-button text-end mt-2">
+                <button type="button" class="btn btn-outline-success">
+                  Cancel
+                </button>
+                <button type="submit" class="btn btn-success">Save</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

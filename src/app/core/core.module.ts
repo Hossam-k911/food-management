@@ -10,7 +10,14 @@ import { ResetPasswordDialogComponent } from './Components/reset-password/reset-
 import { LoaderComponent } from './Interceptors/Loader/Components/loader/loader.component';
 
 @NgModule({
-  declarations: [LoginComponent, ResetPasswordComponent, RegisterComponent, ResetPasswordDialogComponent, LoaderComponent],
+  declarations: [
+    LoginComponent,
+    ResetPasswordComponent,
+    RegisterComponent,
+    ResetPasswordDialogComponent,
+    LoaderComponent,
+  ],
   imports: [CommonModule, CoreRoutingModule, SharedModule],
+  exports: [LoaderComponent],
 })
 export class CoreModule {}

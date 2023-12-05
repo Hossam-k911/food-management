@@ -22,6 +22,7 @@ export class ResetPasswordDialogComponent implements OnInit {
     private core: CoreService,
     private toastr: ToastrService,
     private _router: Router,
+
     @Inject(MAT_DIALOG_DATA) public email: any,
     public dialog: MatDialogRef<ResetPasswordDialogComponent>
   ) {

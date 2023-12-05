@@ -9,7 +9,8 @@ import { CoreService } from '../../services/core/core.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ResetPasswordDialogComponent } from '../reset-password/reset-password-dialog/reset-password-dialog.component';
 import { ToastrService } from 'ngx-toastr';
-import { error } from '@angular/compiler/src/util';
+import { Router } from '@angular/router';
+// import { JwtService } from '../../services/jwt/jwt.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -17,12 +18,14 @@ import { error } from '@angular/compiler/src/util';
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({});
+  hide: boolean = true;
 
   constructor(
+    private router: Router,
     private formBuilder: FormBuilder,
     private core: CoreService,
     public dialog: MatDialog,
-    private toastr: ToastrService
+    private toastr: ToastrService // private jwtService: JwtService
   ) {
     this.loginForm = this.formBuilder.group({
       email: new FormControl('', [Validators.required, Validators.email]),
@@ -41,10 +44,20 @@ export class LoginComponent implements OnInit {
     if (this.loginForm.valid) {
       this.core.login(this.loginForm.getRawValue()).subscribe(
         (res: any) => {
-          debugger;
           console.log(res);
+          // this.jwtService.DecodeToken(res.token);
 
+          // let user = this.getUser(res.token);
+          // console.log(user);
+
+          // // localStorage.setItem('user', this.getUser(res.token));
           localStorage.setItem('token', res.token);
+          // localStorage.setItem('role', user.roles[0]);
+
+          this.loginSuccess();
+
+          this.core.getProfile();
+          this.router.navigate(['/dashboard']);
         },
         (error) => {
           this.loginError(error);
@@ -72,4 +85,8 @@ export class LoginComponent implements OnInit {
   loginError(errMessage) {
     this.toastr.error(`${errMessage.message}`);
   }
+
+  // private getUser(token: string) {
+  //   return JSON.parse(atob(token.split('.')[1]));
+  // }
 }

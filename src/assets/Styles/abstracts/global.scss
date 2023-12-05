@@ -2,10 +2,14 @@
 
 .main-text {
   color: $main-txt;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .second-txt {
   color: $secondry-txt;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .main-bg {
@@ -13,4 +17,15 @@
 }
 .secondary-bg {
   background-color: $secondry-txt !important;
+}
+
+.page-header {
+  background-image: url("../../img/header.svg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  border-radius: 15px;
+  span {
+    color: #dfe0e0;
+  }
 }

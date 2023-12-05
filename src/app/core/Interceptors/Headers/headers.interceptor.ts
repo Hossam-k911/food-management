@@ -15,16 +15,18 @@ export class HeadersInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    const $baseUrl = 'http://upskilling-egypt.com:3002/api/v1/';
+    const $baseUrl = 'https://upskilling-egypt.com:443/api/v1/';
     const authToken = localStorage.getItem('token');
-    let headers = request.headers;
-
-    if (!authToken) {
-      headers.set('Authorization', `Bearer ${authToken} `);
+    let newheaders = {};
+    if (authToken !== null) {
+      newheaders = { Authorization: `Bearer ${authToken}` };
     }
 
-    const apiUrl = $baseUrl + request.url;
-    const hossam = request.clone({ url: apiUrl, headers: headers });
-    return next.handle(hossam);
+    let cloned = request.clone({
+      setHeaders: newheaders,
+      url: $baseUrl + request.url,
+    });
+
+    return next.handle(cloned);
   }
 }

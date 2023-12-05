@@ -37,18 +37,24 @@
                 Hossam@Upskilling.com
               </h5>
             </div>
-            <div class="input-group mb-3">
+            <div class="input-group mb-3 position-relative">
               <span class="input-group-text" id="basic-addon1">
                 <i class="fa-solid fa-lock"></i>
               </span>
               <input
-                type="password"
                 class="form-control"
                 placeholder="Password"
                 aria-label="Password"
                 aria-describedby="basic-addon1"
                 formControlName="password"
+                [type]="hide ? 'password' : 'text'"
               />
+              <!-- <span (click)="hide = !hide" class="eye-icon"
+                ><i class="fa-solid fa-eye"></i
+              ></span> -->
+              <span (click)="hide = !hide" class="eye-icon"
+                ><i [ngClass]="hide ? 'fa fa-eye' : 'fa fa-eye-slash'"></i
+              ></span>
             </div>
             <div
               class="alert alert-danger p-2 my-2"
@@ -65,12 +71,12 @@
               </h5>
             </div>
             <div class="d-flex justify-content-between links-holder my-3">
-              <a class="second-txt"> Register Now</a>
+              <a class="second-txt"> Register Now?</a>
               <a
                 class="main-text"
                 (click)="openResetPasswordDialog(loginForm.get('email').value)"
               >
-                Forget Password</a
+                Forget Password?</a
               >
             </div>
 
